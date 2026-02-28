@@ -1,0 +1,186 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:Variant11Avalonia.Controls"
+        mc:Ignorable="d"
+        d:DesignWidth="1200"
+        d:DesignHeight="820"
+        x:Class="Variant11Avalonia.MainWindow"
+        Title="Практическая работа 4 Кобелев Д."
+        MinWidth="980"
+        MinHeight="700"
+        RequestedThemeVariant="Light"
+        Background="#FFFFFF"
+        Foreground="#111111">
+
+  <Window.Styles>
+    <Style Selector="TabControl">
+      <Setter Property="Background" Value="#FFFFFF"/>
+      <Setter Property="Foreground" Value="#111111"/>
+    </Style>
+    <Style Selector="TabItem">
+      <Setter Property="Background" Value="#F3F3F3"/>
+      <Setter Property="BorderBrush" Value="#C8C8C8"/>
+      <Setter Property="Foreground" Value="#111111"/>
+    </Style>
+    <Style Selector="TabItem:selected">
+      <Setter Property="Background" Value="#DCEBFF"/>
+      <Setter Property="BorderBrush" Value="#6CA0DC"/>
+      <Setter Property="Foreground" Value="#111111"/>
+    </Style>
+    <Style Selector="TabItem:pointerover">
+      <Setter Property="Background" Value="#EAF3FF"/>
+      <Setter Property="Foreground" Value="#111111"/>
+    </Style>
+    <Style Selector="TabItem /template/ ContentPresenter">
+      <Setter Property="TextElement.Foreground" Value="#111111"/>
+    </Style>
+    <Style Selector="TabItem:selected /template/ ContentPresenter">
+      <Setter Property="TextElement.Foreground" Value="#111111"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+    <Style Selector="TabItem:pointerover /template/ ContentPresenter">
+      <Setter Property="TextElement.Foreground" Value="#111111"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+    <Style Selector="TextBlock">
+      <Setter Property="Foreground" Value="#111111"/>
+    </Style>
+    <Style Selector="TextBox">
+      <Setter Property="Background" Value="#FFFFFF"/>
+      <Setter Property="Foreground" Value="#111111"/>
+      <Setter Property="BorderBrush" Value="#BDBDBD"/>
+    </Style>
+    <Style Selector="RadioButton">
+      <Setter Property="Foreground" Value="#111111"/>
+    </Style>
+    <Style Selector="Button">
+      <Setter Property="Background" Value="#F2F2F2"/>
+      <Setter Property="Foreground" Value="#111111"/>
+      <Setter Property="BorderBrush" Value="#BDBDBD"/>
+    </Style>
+    <Style Selector="ScrollViewer">
+      <Setter Property="Background" Value="#FFFFFF"/>
+    </Style>
+  </Window.Styles>
+
+  <TabControl ToolTip.Tip="Навигация по страницам приложения">
+    <TabItem Header="Страница 1: b(x,y,z)" ToolTip.Tip="Расчет функции b">
+      <ScrollViewer Margin="12">
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*" RowSpacing="8" ColumnSpacing="12">
+          <Border Grid.Row="1" Grid.ColumnSpan="2" Height="120" BorderThickness="1" BorderBrush="Gray" Background="#F4F4F4"
+                  ToolTip.Tip="Область для изображения формулы 11.b">
+            <Grid>
+              <Image Source="avares://Variant11Avalonia/Assets/1.png" Stretch="Uniform" ToolTip.Tip="Скриншот формулы задания"/>
+            </Grid>
+          </Border>
+
+          <TextBlock Grid.Row="2" Text="x:" VerticalAlignment="Center" ToolTip.Tip="Введите x"/>
+          <TextBox x:Name="Page1XTextBox" Grid.Row="2" Grid.Column="1" Watermark="Например, 1.5" ToolTip.Tip="Поле ввода x"/>
+
+          <TextBlock Grid.Row="3" Text="y:" VerticalAlignment="Center" ToolTip.Tip="Введите y"/>
+          <TextBox x:Name="Page1YTextBox" Grid.Row="3" Grid.Column="1" Watermark="Например, 2" ToolTip.Tip="Поле ввода y"/>
+
+          <TextBlock Grid.Row="4" Text="z:" VerticalAlignment="Center" ToolTip.Tip="Введите z"/>
+          <TextBox x:Name="Page1ZTextBox" Grid.Row="4" Grid.Column="1" Watermark="Например, 0.3" ToolTip.Tip="Поле ввода z"/>
+
+          <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="10">
+            <Button Content="Вычислить" Width="150" Click="CalculatePage1Click" ToolTip.Tip="Рассчитать значение b"/>
+            <Button Content="Очистить" Width="150" Click="ClearPage1Click" ToolTip.Tip="Очистить поля страницы"/>
+          </StackPanel>
+
+          <TextBlock Grid.Row="6" Text="Ответ b:" VerticalAlignment="Center" ToolTip.Tip="Результат вычисления"/>
+          <TextBox x:Name="Page1ResultTextBox" Grid.Row="6" Grid.Column="1" IsReadOnly="True" ToolTip.Tip="Поле только для чтения"/>
+
+          <TextBlock x:Name="Page1ValidationText" Grid.Row="7" Grid.ColumnSpan="2" Foreground="Firebrick" FontWeight="SemiBold"
+                     TextWrapping="Wrap" ToolTip.Tip="Сообщение о проверке данных"/>
+        </Grid>
+      </ScrollViewer>
+    </TabItem>
+
+    <TabItem Header="Страница 2: a(x,y)" ToolTip.Tip="Расчет кусочной функции a">
+      <ScrollViewer Margin="12">
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*" RowSpacing="8" ColumnSpacing="12">
+          <Border Grid.Row="1" Grid.ColumnSpan="2" Height="120" BorderThickness="1" BorderBrush="Gray" Background="#F4F4F4"
+                  ToolTip.Tip="Область для изображения формулы 11.a">
+            <Grid>
+              <Image Source="avares://Variant11Avalonia/Assets/2.png" Stretch="Uniform" ToolTip.Tip="Скриншот формулы задания"/>
+            </Grid>
+          </Border>
+
+          <TextBlock Grid.Row="2" Text="x:" VerticalAlignment="Center" ToolTip.Tip="Введите x"/>
+          <TextBox x:Name="Page2XTextBox" Grid.Row="2" Grid.Column="1" ToolTip.Tip="Поле ввода x"/>
+
+          <TextBlock Grid.Row="3" Text="y:" VerticalAlignment="Center" ToolTip.Tip="Введите y"/>
+          <TextBox x:Name="Page2YTextBox" Grid.Row="3" Grid.Column="1" ToolTip.Tip="Поле ввода y"/>
+
+          <TextBlock Grid.Row="4" Text="f(x):" VerticalAlignment="Top" ToolTip.Tip="Выбор функции f(x)"/>
+          <StackPanel Grid.Row="4" Grid.Column="1" Spacing="6" ToolTip.Tip="Выберите один вариант функции">
+            <RadioButton x:Name="FxSinhRadio" GroupName="fxGroup" Content="sh(x)" IsChecked="True" ToolTip.Tip="Гиперболический синус"/>
+            <RadioButton x:Name="FxSquareRadio" GroupName="fxGroup" Content="x^2" ToolTip.Tip="Квадрат x"/>
+            <RadioButton x:Name="FxExpRadio" GroupName="fxGroup" Content="e^x" ToolTip.Tip="Экспонента от x"/>
+          </StackPanel>
+
+          <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="10">
+            <Button Content="Вычислить" Width="150" Click="CalculatePage2Click" ToolTip.Tip="Рассчитать значение a"/>
+            <Button Content="Очистить" Width="150" Click="ClearPage2Click" ToolTip.Tip="Очистить поля страницы"/>
+          </StackPanel>
+
+          <TextBlock Grid.Row="6" Text="Ответ a:" VerticalAlignment="Center" ToolTip.Tip="Результат вычисления"/>
+          <TextBox x:Name="Page2ResultTextBox" Grid.Row="6" Grid.Column="1" IsReadOnly="True" ToolTip.Tip="Поле только для чтения"/>
+
+          <TextBlock x:Name="Page2ConditionText" Grid.Row="7" Grid.ColumnSpan="2" Foreground="#0A5" FontWeight="SemiBold"
+                     ToolTip.Tip="Какая ветка кусочной функции была выбрана"/>
+          <TextBlock x:Name="Page2ValidationText" Grid.Row="8" Grid.ColumnSpan="2" Foreground="Firebrick" FontWeight="SemiBold"
+                     TextWrapping="Wrap" ToolTip.Tip="Сообщение о проверке данных"/>
+        </Grid>
+      </ScrollViewer>
+    </TabItem>
+
+    <TabItem Header="Страница 3: y(x) + график" ToolTip.Tip="Табулирование и построение графика">
+      <ScrollViewer Margin="12">
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,*" ColumnDefinitions="Auto,*" RowSpacing="8" ColumnSpacing="12">
+          <Border Grid.Row="1" Grid.ColumnSpan="2" Height="110" BorderThickness="1" BorderBrush="Gray" Background="#F4F4F4"
+                  ToolTip.Tip="Область для изображения расчетной формулы">
+            <Grid>
+              <Image Source="avares://Variant11Avalonia/Assets/3.png" Stretch="Uniform" ToolTip.Tip="Скриншот формулы задания"/>
+            </Grid>
+          </Border>
+
+          <TextBlock Grid.Row="2" Text="x0:" VerticalAlignment="Center" ToolTip.Tip="Начало отрезка"/>
+          <TextBox x:Name="Page3X0TextBox" Grid.Row="2" Grid.Column="1" ToolTip.Tip="Левая граница x0"/>
+
+          <TextBlock Grid.Row="3" Text="xk:" VerticalAlignment="Center" ToolTip.Tip="Конец отрезка"/>
+          <TextBox x:Name="Page3XkTextBox" Grid.Row="3" Grid.Column="1" ToolTip.Tip="Правая граница xk"/>
+
+          <TextBlock Grid.Row="4" Text="dx:" VerticalAlignment="Center" ToolTip.Tip="Шаг изменения x"/>
+          <TextBox x:Name="Page3DxTextBox" Grid.Row="4" Grid.Column="1" ToolTip.Tip="Шаг dx (не может быть 0)"/>
+
+          <TextBlock Grid.Row="5" Text="a:" VerticalAlignment="Center" ToolTip.Tip="Параметр a"/>
+          <TextBox x:Name="Page3ATextBox" Grid.Row="5" Grid.Column="1" ToolTip.Tip="Параметр a"/>
+
+          <TextBlock Grid.Row="6" Text="b:" VerticalAlignment="Center" ToolTip.Tip="Параметр b"/>
+          <TextBox x:Name="Page3BTextBox" Grid.Row="6" Grid.Column="1" ToolTip.Tip="Параметр b"/>
+
+          <StackPanel Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="10">
+            <Button Content="Вычислить" Width="150" Click="CalculatePage3Click" ToolTip.Tip="Табулировать функцию и построить график"/>
+            <Button Content="Очистить" Width="150" Click="ClearPage3Click" ToolTip.Tip="Очистить таблицу и график"/>
+          </StackPanel>
+
+          <TextBlock Grid.Row="8" Text="Список значений x и y:" VerticalAlignment="Center" ToolTip.Tip="Результаты цикла"/>
+          <TextBox x:Name="Page3ResultTextBox" Grid.Row="9" Grid.ColumnSpan="2" Height="190" AcceptsReturn="True" IsReadOnly="True"
+                   TextWrapping="NoWrap" FontFamily="Consolas" ToolTip.Tip="Многострочный вывод таблицы"/>
+
+          <TextBlock x:Name="Page3ValidationText" Grid.Row="10" Grid.ColumnSpan="2" Foreground="Firebrick" FontWeight="SemiBold"
+                     TextWrapping="Wrap" ToolTip.Tip="Сообщение о проверке данных"/>
+
+          <Border Grid.Row="11" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="DarkGray" Padding="6"
+                  ToolTip.Tip="Chart: график функции y(x)">
+            <controls:FunctionChartControl x:Name="FunctionChart" Height="320"/>
+          </Border>
+        </Grid>
+      </ScrollViewer>
+    </TabItem>
+  </TabControl>
+</Window>
