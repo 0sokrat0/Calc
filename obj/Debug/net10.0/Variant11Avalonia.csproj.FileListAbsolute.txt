@@ -71,3 +71,6 @@
 /Users/sokrat/Desktop/Code/Study KIP/1c/testing/Variant11Avalonia/obj/Debug/net10.0/Variant11Avalonia.pdb
 /Users/sokrat/Desktop/Code/Study KIP/1c/testing/Variant11Avalonia/obj/Debug/net10.0/Variant11Avalonia.genruntimeconfig.cache
 /Users/sokrat/Desktop/Code/Study KIP/1c/testing/Variant11Avalonia/obj/Debug/net10.0/ref/Variant11Avalonia.dll
+/Users/sokrat/Desktop/Code/Study KIP/1c/testing/Variant11Avalonia/obj/Debug/net10.0/Variant11Avalonia.sourcelink.json
+/Users/sokrat/Desktop/Code/Study KIP/1c/testing/Variant11Avalonia/bin/Debug/net10.0/Variant11Avalonia.xml
+/Users/sokrat/Desktop/Code/Study KIP/1c/testing/Variant11Avalonia/obj/Debug/net10.0/Variant11Avalonia.xml

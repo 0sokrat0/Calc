@@ -9,10 +9,16 @@ using Avalonia.Threading;
 
 namespace Variant11Avalonia.Controls;
 
+/// <summary>
+/// Пользовательский элемент управления для отображения графика по набору точек.
+/// </summary>
 public class FunctionChartControl : UserControl
 {
     private readonly Canvas _canvas;
 
+    /// <summary>
+    /// Инициализирует новый экземпляр элемента управления графиком.
+    /// </summary>
     public FunctionChartControl()
     {
         HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch;
@@ -34,8 +40,15 @@ public class FunctionChartControl : UserControl
         Clear();
     }
 
+    /// <summary>
+    /// Получает последний набор точек, отображенных на графике.
+    /// </summary>
     public IReadOnlyList<Point> LastPoints { get; private set; } = Array.Empty<Point>();
 
+    /// <summary>
+    /// Передает точки для последующей отрисовки графика.
+    /// </summary>
+    /// <param name="points">Набор вычисленных точек.</param>
     public void SetPoints(IReadOnlyList<Point> points)
     {
         LastPoints = points
@@ -159,6 +172,9 @@ public class FunctionChartControl : UserControl
         _canvas.InvalidateVisual();
     }
 
+    /// <summary>
+    /// Очищает текущий график и выводит подсказку-заглушку.
+    /// </summary>
     public void Clear()
     {
         LastPoints = Array.Empty<Point>();

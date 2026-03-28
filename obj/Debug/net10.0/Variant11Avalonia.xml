@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Variant11Avalonia</name>
+    </assembly>
+    <members>
+        <member name="T:Variant11Avalonia.App">
+            <summary>
+            Корневой класс Avalonia-приложения.
+            </summary>
+        </member>
+        <member name="M:Variant11Avalonia.App.Initialize">
+            <summary>
+            Загружает XAML-ресурсы приложения.
+            </summary>
+        </member>
+        <member name="M:Variant11Avalonia.App.OnFrameworkInitializationCompleted">
+            <summary>
+            Завершает инициализацию инфраструктуры приложения и создает главное окно.
+            </summary>
+        </member>
+        <member name="T:Variant11Avalonia.Page2Function">
+            <summary>
+            Перечисление доступных вариантов функции <c>f(x)</c> для второй страницы.
+            </summary>
+        </member>
+        <member name="F:Variant11Avalonia.Page2Function.Sinh">
+            <summary>
+            Гиперболический синус.
+            </summary>
+        </member>
+        <member name="F:Variant11Avalonia.Page2Function.Square">
+            <summary>
+            Квадрат числа.
+            </summary>
+        </member>
+        <member name="F:Variant11Avalonia.Page2Function.Exp">
+            <summary>
+            Экспонента.
+            </summary>
+        </member>
+        <member name="T:Variant11Avalonia.CalculationEngine">
+            <summary>
+            Выполняет вычисления математических функций, используемых в приложении.
+            </summary>
+        </member>
+        <member name="M:Variant11Avalonia.CalculationEngine.ComputePage1(System.Double,System.Double,System.Double)">
+            <summary>
+            Вычисляет значение функции <c>b</c> для первой страницы.
+            </summary>
+            <param name="x">Значение <c>x</c>.</param>
+            <param name="y">Значение <c>y</c>.</param>
+            <param name="z">Значение <c>z</c>.</param>
+            <returns>Результат вычисления функции <c>b</c>.</returns>
+        </member>
+        <member name="M:Variant11Avalonia.CalculationEngine.ComputePage2(System.Double,System.Double,Variant11Avalonia.Page2Function,System.String@)">
+            <summary>
+            Вычисляет значение функции <c>a</c> для второй страницы и сообщает использованную ветку условия.
+            </summary>
+            <param name="x">Значение <c>x</c>.</param>
+            <param name="y">Значение <c>y</c>.</param>
+            <param name="function">Выбранный вариант функции <c>f(x)</c>.</param>
+            <param name="branch">Текстовое описание использованной ветки условия.</param>
+            <returns>Результат вычисления функции <c>a</c>.</returns>
+        </member>
+        <member name="M:Variant11Avalonia.CalculationEngine.ComputePage3Y(System.Double,System.Double,System.Double)">
+            <summary>
+            Вычисляет значение функции <c>y</c> для третьей страницы.
+            </summary>
+            <param name="x">Текущее значение <c>x</c>.</param>
+            <param name="a">Параметр <c>a</c>.</param>
+            <param name="b">Параметр <c>b</c>.</param>
+            <returns>Результат вычисления функции <c>y</c>.</returns>
+        </member>
+        <member name="T:Variant11Avalonia.Controls.FunctionChartControl">
+            <summary>
+            Пользовательский элемент управления для отображения графика по набору точек.
+            </summary>
+        </member>
+        <member name="M:Variant11Avalonia.Controls.FunctionChartControl.#ctor">
+            <summary>
+            Инициализирует новый экземпляр элемента управления графиком.
+            </summary>
+        </member>
+        <member name="P:Variant11Avalonia.Controls.FunctionChartControl.LastPoints">
+            <summary>
+            Получает последний набор точек, отображенных на графике.
+            </summary>
+        </member>
+        <member name="M:Variant11Avalonia.Controls.FunctionChartControl.SetPoints(System.Collections.Generic.IReadOnlyList{Avalonia.Point})">
+            <summary>
+            Передает точки для последующей отрисовки графика.
+            </summary>
+            <param name="points">Набор вычисленных точек.</param>
+        </member>
+        <member name="M:Variant11Avalonia.Controls.FunctionChartControl.Clear">
+            <summary>
+            Очищает текущий график и выводит подсказку-заглушку.
+            </summary>
+        </member>
+        <member name="T:Variant11Avalonia.MainWindow">
+            <summary>
+            Главное окно приложения с тремя страницами вычислений.
+            </summary>
+        </member>
+        <member name="M:Variant11Avalonia.MainWindow.#ctor">
+            <summary>
+            Инициализирует главное окно приложения.
+            </summary>
+        </member>
+        <member name="M:Variant11Avalonia.MainWindow.InitializeComponent(System.Boolean,System.Boolean)">
+            <summary>
+            Wires up the controls and optionally loads XAML markup and attaches dev tools (if Avalonia.Diagnostics package is referenced).
+            </summary>
+            <param name="loadXaml">Should the XAML be loaded into the component.</param>
+            <param name="attachDevTools">Should the dev tools be attached.</param>
+        </member>
+    </members>
+</doc>

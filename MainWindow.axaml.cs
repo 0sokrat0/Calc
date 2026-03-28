@@ -11,10 +11,16 @@ using Avalonia.Media;
 
 namespace Variant11Avalonia;
 
+/// <summary>
+/// Главное окно приложения с тремя страницами вычислений.
+/// </summary>
 public partial class MainWindow : Window
 {
     private bool _exitConfirmed;
 
+    /// <summary>
+    /// Инициализирует главное окно приложения.
+    /// </summary>
     public MainWindow()
     {
         InitializeComponent();
@@ -74,47 +80,14 @@ public partial class MainWindow : Window
             return;
         }
 
-        double fx;
-        if (FxSinhRadio.IsChecked == true)
-        {
-            fx = Math.Sinh(x);
-        }
-        else if (FxSquareRadio.IsChecked == true)
-        {
-            fx = x * x;
-        }
-        else
-        {
-            fx = Math.Exp(x);
-        }
+        Page2Function function = FxSinhRadio.IsChecked == true
+            ? Page2Function.Sinh
+            : FxSquareRadio.IsChecked == true
+                ? Page2Function.Square
+                : Page2Function.Exp;
 
-        var xy = x * y;
-        var basePart = Math.Pow(fx + y, 2);
-        double a;
-
-        if (xy > 0)
-        {
-            var radicand = fx * y;
-            if (radicand < 0)
-            {
-                Page2ValidationText.Text = "Подкоренное выражение f(x)*y < 0 для ветки xy > 0.";
-                Page2ResultTextBox.Text = string.Empty;
-                return;
-            }
-
-            a = basePart - Math.Sqrt(radicand);
-            Page2ConditionText.Text = "Использована ветка: xy > 0";
-        }
-        else if (xy < 0)
-        {
-            a = basePart + Math.Sqrt(Math.Abs(fx * y));
-            Page2ConditionText.Text = "Использована ветка: xy < 0";
-        }
-        else
-        {
-            a = basePart + 1;
-            Page2ConditionText.Text = "Использована ветка: xy = 0";
-        }
+        var a = CalculationEngine.ComputePage2(x, y, function, out var branch);
+        Page2ConditionText.Text = $"Использована ветка: {branch}";
 
         Page2ResultTextBox.Text = a.ToString("G17", CultureInfo.InvariantCulture);
     }
@@ -186,7 +159,7 @@ public partial class MainWindow : Window
                 break;
             }
 
-            var y = CalculateThirdFunctionY(x, a, b);
+            var y = CalculationEngine.ComputePage3Y(x, a, b);
             points.Add(new Point(x, y));
             sb.AppendLine($"{index,-6} {x, -18:G12} {y, -18:G12}");
 
@@ -223,11 +196,6 @@ public partial class MainWindow : Window
         Page3ResultTextBox.Text = string.Empty;
         Page3ValidationText.Text = string.Empty;
         BuildEmptyChart();
-    }
-
-    private static double CalculateThirdFunctionY(double x, double a, double b)
-    {
-        return x + Math.Sqrt(Math.Abs(Math.Pow(x, 3) + a - b * Math.Exp(x)));
     }
 
     private void BuildChart(IReadOnlyList<Point> points)

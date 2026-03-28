@@ -3,6 +3,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
@@ -20,5 +21,11 @@
 
   <ItemGroup>
     <AvaloniaResource Include="Assets/**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Variant11Avalonia.Tests/**/*.cs" />
+    <EmbeddedResource Remove="Variant11Avalonia.Tests/**" />
+    <None Remove="Variant11Avalonia.Tests/**/*.cs" />
   </ItemGroup>
 </Project>
